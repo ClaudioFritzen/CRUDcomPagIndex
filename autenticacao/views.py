@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 # pagina de cadastro e paghome
 def cadastro(request):
-    return HttpResponse("Você está na pagina de cadastro")
+    return render(request, 'cadastro.html')
 
 # login
 
