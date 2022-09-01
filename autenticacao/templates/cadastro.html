@@ -1,27 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastra-se</title>
-</head>
-<body>
-    <main>
-        <header>
-            <h1>Realize seu cadastro</h1>
-        </header>
-        <section>
-            <h1>Pagina de Cadastro</h1>
-            <label for="txtNome">Nome Completo</label>
-            <input id="txtNome" class="nome" />
+{% extends 'base.html' %}
 
-            <label for="txtEmail">Ja possui conta? </label>
-            <input id="txtEmail" class="email" />
+{% load static %}
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'autenticacao/css/css.css' %}">
+{% endblock %}
 
-            <button> Login </button>
-        </section>
-    </main>
-
-</body>
-</html>
+{% block 'titulo' %}Cadastre-se{% endblock %}
+{% block 'body' %}
+   <h1> Hello world</h1>
+{% endblock %}
