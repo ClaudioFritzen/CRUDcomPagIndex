@@ -10,4 +10,4 @@ def cadastro(request):
 # login
 
 def logar(request):
-    return HttpResponse("Você esta na pagina de login")
+    return render(request, 'logar.html')     #HttpResponse("Você esta na pagina de login")
