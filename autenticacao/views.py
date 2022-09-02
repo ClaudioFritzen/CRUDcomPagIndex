@@ -1,3 +1,4 @@
+import email
 from django.shortcuts import render
 from django.http import HttpResponse
 
@@ -5,7 +6,13 @@ from django.http import HttpResponse
 
 # pagina de cadastro e paghome
 def cadastro(request):
-    return render(request, 'cadastro.html')
+    if request.method == "GET":
+        return render(request, 'cadastro.html')
+    elif request.method == "POST":
+        # pegando os dados enviados quando preenchemos o cadastro
+        usuario = request.POST.get('usuario')
+        email = request.POST.get('email')
+        return HttpResponse (f'{usuario} {email}')
 
 # login
 
