@@ -1,30 +1,55 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login </title>
-</head>
-<body>
-    <main>
-        <header>
+{% extends 'base.html' %}
+{% load static%}
+{% block 'head' %}
+<link rel="stylesheet" href="{% static 'autenticacao/css/style.css'%}">
+{% endblock 'head' %}
+
+{% block 'body' %}
+
+<main>
+<header>
             
-        </header>
-        <section>
-            <div class="content">
-                <h1>Seja bem Vindo de Volta </h1>
-                <form action="">
-                    <label for="txtEmail"> Digite seu email</label>
-                    <input id="txtEmail" type="email" />
+</header>
+    <section>
 
-                    <label for="txtCadastro">Não possui uma conta? </label>
-                    <button> Cadastra-se </button>
-                </form>
-            </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 sidebar">             
+                    <div class="logo_sidebar">
+                        <h2 class="logo">
+                        <img class="img_logo_sidebar" src="{% static 'autenticacao/img/logo_dev_bg.png'%}">
+    
+                        </h2>
+                    </div>
+                </div>        
+                <div class="col-md-9">
+                    <div class="area_cadastrar">
+                        {% if messages %}
+                            <br>
+                            {% for message in messages %}
+                                <div class="alert {{message.tags}}">
+                                    {{message}}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        <h2 class="titulo"> Seja bem vindo </h2>
+                        <p class="sub-titulo">  Entre com sua conta</p>
+                        <br>
 
-            </div>
+                        <form action="{% url 'logar' %}" method="POST">
+                            {% csrf_token %}
+                            <span classe="bold"> Nome do Usuario</span>
+                            <input class="form-control input-form" name="usuario" type="text" placeholder="Digite seu nome..." />
+                            <br>
+                            <span class="bold">Senha</span>
+                            <input class="form-control input-form" name="senha"  type="password" placeholder="Digite sua senha"/>
+
+                            <label for="txtCadastro">Não possui uma conta? </label>
+                            <button> Cadastra-se </button>
+                        </form>
+                    </div>  
+
+        </div>
         </section>
     </main>
-</body>
-</html>
+{% endblock 'body' %}
