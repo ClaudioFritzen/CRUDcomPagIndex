@@ -43,13 +43,16 @@
                             <br>
                             <span class="bold">Senha</span>
                             <input class="form-control input-form" name="senha"  type="password" placeholder="Digite sua senha"/>
-
-                            <label for="txtCadastro">Não possui uma conta? </label>
-                            <button> Cadastra-se </button>
+                            <br>
+                            <button class="form-control"> Logar </button>
                         </form>
+                        <h3 style="position: absolute; bottom: 65px; font-weight:bold">
+                            Não tem uma conta?&nbsp <a href="{% url 'cadastro' %}" class="btn btn-outline-success btn-lg"> Registre-se </a></h3>
                     </div>  
 
+                </div>
+            </div>
         </div>
-        </section>
-    </main>
+    </section>
+</main>
 {% endblock 'body' %}
